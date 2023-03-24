@@ -1,0 +1,85 @@
+# Splitter
+„Bei Geld hört die Freundschaft auf” heißt es. Rund um das Geld entstehen oft Probleme zwischen Menschen. Wir wollen uns des Themas annehmen und für Gruppen von Personen, die gemeinsame Ausgaben tätigen (zum Beispiel Wohngemeinschaften und Reisegruppen), eine Software schreiben, mit deren Hilfe die Ausgaben transparent aufgeschlüsselt und die Konten möglichst einfach ausgeglichen werden können.
+
+Beispielszenario: Urlaub
+Eine Gruppe von sechs Freunden (A,B,C,D,E und F) macht einen gemeinsamen Städtetripp. Die Kosten für das Hotelzimmer (564 EUR) hat A vorab bezahlt. Die Reise wird in den Autos von B und C durchgeführt. D fährt mit dem Zug alleine hin, da er sowieso in der Nähe des Zielortes ist. B nimmt A auf dem Hinweg mit, auf dem Rückweg nimmt B auch D mit. Die anderen fahren hin und zurück in Cs Auto mit. Am Ende der Reise tragen B und C die Benzinkosten ein. B hat insgesamt 77,16 EUR bezahlt, die für Hin- und Rückweg einfach halbiert werden. C hatte 82,11 EUR an Benzinkosten. Am Ziel angekommen machen alle eine Städtetour, die Kosten (96 EUR) legt D aus. Am Abend wollen B, E und F gemeinsam eine Theatervorstellung besuchen, deren Kosten (95.37 EUR) von F ausgelegt werden, die anderen drei gehen lieber gemeinsam Abendessen, zahlen ihre Rechnungen aber selber.
+
+Am Ende des Trips sollen nun die Konten ausgeglichen werden, dabei wollen wir, dass
+
+eine Person immer nur selber Überweisungen an andere tätigt, oder Geld überwiesen bekommt, aber niemals beides. Es soll also zum Beispiel nicht vorkommen, dass B an A für das Hotelzimmer eine Überweisung tätigen muss, und A dann an B den Anteil am Benzinverbrauch überweist. Auch Zirkelüberweisungen sollen ausgeschlossen werden.
+
+es höchstens eine Überweisung zwischen zwei Personen gibt und Niemand sich selber Geld überweist.
+
+die Anzahl der Transaktionen minimal ist.
+In unserem Szenario könnte eine Rechnung am Ende so aussehen, dass A von allen Personen noch Geld bekommt:
+
+Von	Betrag
+B
+
+96,78
+
+C
+
+55,26
+
+D
+
+26,86
+
+E
+
+169,16
+
+F
+
+73,79
+
+Die im Praktikum entwickelte Software soll folgenden Funktionsumfang haben:
+
+Neue Gruppen können erzeugt werden
+
+Personen können über ihren GitHub-Namen hinzugefügt werden
+
+Personen, die in einer Gruppe sind, können Ausgaben, die für die Gruppe (oder auch nur Teile der Gruppe!) getätigt wurden eintragen.
+
+Die Nutzer:innen der Anwendung können eine Übersicht über alle Gruppen bekommen, in denen sie eingetragen sind. Von dieser Übersicht aus können sie in eine Detailansicht der einzelnen Gruppen navigieren und sehen dort:
+
+Alle getätigten Ausgaben der Gruppe und welche Personen beteiligt sind. Alle Ausgaben, die in irgendeiner Weise die eigene Person betreffen sind geeignet hervorgehoben.
+
+Eine Übersicht über die notwendigen Transaktionen zwischen einzelnen Personen, um die Auslagen auszugleichen.
+
+Zu einem bestimmten Zeitpunkt kann die Gruppe geschlossen werden, danach sind keine Eintragungen mehr möglich. Es ist aber immer noch möglich, alle Details der Gruppe anzuschauen. Geschlossene Gruppen sind auf der Übersichtsseite von offenen getrennt aufgeführt.
+
+Berechtigungen
+Es sollen folgende Autorisierungen umgesetzt werden. Wir verwenden GitHub als OAuth-Provider zur Authentifikation.
+
+Gruppengründung und Schließung
+
+Jede Person mit einem GitHub-Account kann eine neue Gruppe gründen. Die Person, die die Gruppe gründet, wird automatisch zur Gruppe hinzugefügt.
+
+Jede Person in einer Gruppe kann neue Teilnehmer:innen hinzufügen. Dazu werden GitHub-Namen eingetragen. In unserem MVP wird nur geprüft, ob der GitHub-Name prinzipiell möglich ist, nicht, ob der Account existiert. Nachträgliche Änderungen des Accountnamens werden nicht berücksichtigt.
+
+Sobald eine Ausgabe für die Gruppe eingetragen wurde, können keine weiteren Personen mehr hinzugefügt werden.
+
+Jede Person in einer Gruppe kann die Gruppe schließen.
+
+Ansichten
+
+Jede Person bekommt eine Liste mit allen Gruppen, in denen sie Mitglied ist, angezeigt.
+
+Jede Person kann die Übersicht über jede Gruppe, in der sie Mitglied ist, anschauen.
+
+Jede Person kann die Übersicht über die zum momentanen Zeitpunkt zum Ausgleich notwendigen Transaktionen für alle Gruppen, in der sie Mitglied ist, anschauen.
+
+Randbedingungen
+Die Anwendung soll als Webanwendung mit Spring Boot umgesetzt werden.
+
+Die Anwendung soll auf Port 9000
+
+Als Datenbank wird PostgreSQL verwendet. Die Datenbank muss in einem Docker-Container laufen.
+
+Datenbank-Tests werden mit H2 umgesetzt und müssen auch laufen, wenn Docker ausgeschaltet ist.
+
+Als OAuth-Provider benutzen wir GitHub.
+
+Als Architekturmuster ist die Onion-Architektur vorgegeben. In der Domänenschicht müssen die taktischen DDD-Muster verwendet werden.
