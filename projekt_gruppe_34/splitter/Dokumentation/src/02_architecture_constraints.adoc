@@ -1,0 +1,24 @@
+[[section-architecture-constraints]]
+== Randbedingungen
+== 2.1 Technisch
+[role="arc42help"]
+****
+Einfach webbasierte Anwendung.
+Sollte in jedem handelsüblichen Browser problemlos laufen.
+****
+
+== 2.2 Organisatorisch
+
+****
+TDD Vorgehensmodell.
+Zuerst Backend dann Frontend.
+Testwerkzeuge: Junit und ArchUnit
+****
+
+== 2.3 Konventionen
+
+****
+Architekturdokumentation: Gliederung nach dem arc42-Template.
+Sprache(Deutsch vs Englisch): Standardsprache beim Benennen von Dingen ist Deutsch. Ausgenommen hiervon sind spezifische Begriffe
+wie Repository, Configurations etc. und andere Dinge die sich in deutscher Sprache nicht gut ausdrücken lassen.
+****

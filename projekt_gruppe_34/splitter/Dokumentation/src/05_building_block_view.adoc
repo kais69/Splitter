@@ -1,0 +1,45 @@
+[[section-building-block-view]]
+== Bausteinsicht
+
+[role="arc42help"]
+
+
+=== Whitebox Gesamtsystem
+
+[role="arc42help"]
+_**Siehe ArchitectureDiagramm.puml**_
+
+
+Begründung::
+Auswahl der Onion Architecture:: es bringt viele vorteile mit sich:
+Hohe Modularität:: Die Onion-Architektur ermöglicht es uns,
+die Anwendung in klar definierte Module zu unterteilen,
+die jeweils für eine bestimmte Funktion oder einen bestimmten
+Aspekt des Systems zuständig sind. Dies erleichtert das Verständnis
+des Systems und macht es einfacher, Änderungen vorzunehmen.
+
+Flexibilität:: Durch die Trennung von Verantwortlichkeiten in der Onion-Architektur können wir leicht neue Funktionen hinzufügen oder bestehende Funktionen ändern, ohne andere Teile des Systems zu beeinträchtigen. ---> Datenbanken Hinzufügen (persistence Schicht).
+
+Testbarkeit:: Durch die Trennung von Verantwortlichkeiten in der Onion-Architektur können einzelne Module einfach getestet werden, um sicherzustellen, dass sie wie erwartet funktionieren. Dies erleichtert das Testen des gesamten Systems und erhöht die Qualität der Software.
+
+Erweiterbarkeit:: Durch die Trennung von Verantwortlichkeiten in der Onion-Architektur können wir leicht neue Module hinzufügen, um neue Funktionen oder Fähigkeiten zu implementieren, ohne den Rest des Systems zu beeinträchtigen.
+
+Entkopplung:: Die Onion-Architektur ermöglicht es, dass Abhängigkeiten zwischen Modulen minimiert werden, wodurch das System insgesamt entkoppelt wird. Dies führt zu einer besseren Wartbarkeit und Skalierbarkeit der Software.
+
+Klare Verantwortlichkeiten:: In der Onion-Architektur sind die Verantwortlichkeiten der verschiedenen Module klar definiert, was dazu beiträgt, dass das System leichter zu verstehen ist und einfacher zu warten ist.
+
+
+Enthaltene Bausteine::
+|===
+| **Name** | **Verantwortung**
+| _repositories_ | _Speichert/lädt die Daten in/aus eine/r Datenbank_
+| _controllers_ | _Ist für die Webseite verantwortlich_
+| _api_ | _Ist für die Rest-Schnittstelle verantwortlich_
+| _application.service_ | _Simuliert die Businesslogik_
+| _domain.service_ | _Simuliert die Domainlogik zwischen die Aggregate_
+| _domain.model_ | _Hier finden sich die Objekte wieder, mit denen man im Programm zu tun hat_
+|===
+
+
+
+

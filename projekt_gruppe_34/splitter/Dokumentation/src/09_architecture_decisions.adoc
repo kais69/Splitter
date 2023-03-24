@@ -1,0 +1,9 @@
+[[section-design-decisions]]
+== Architekturentscheidungen
+
+[role="arc42help"]
+****
+.Inhalt
+Auswahl der Java Module statt Spring Submodule:
+Die Anwendung is klein und leichter in Java Module zu implementieren.
+****

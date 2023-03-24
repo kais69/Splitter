@@ -1,0 +1,50 @@
+[[section-concepts]]
+== Querschnittliche Konzepte
+
+[role="arc42help"]
+****
+.Abhängigkeiten zwischen Modulen
+Unsere Splitter-Anwendung soll so entwickelt werden,
+dass diese auch in Zukunft ergänzt, oder auch verändert werden kann.
+
+.Konfiguration
+Security configuration für Outh2 (GitHub)
+
+
+.Domänenmodell
+Um die Entscheidung zu treffen, wie viel Aggregaten wir haben sollen, betrachten wir die Beziehung
+zwischen beide Klassen Gruppe und Person.
+In jedem Objekt von Gruppe wird eine List von Personen gespeichert, gleichzeitig wird in
+jedem Objekt von Person mehrere Gruppen gespeichert. Das ist ein guter Hinweis, dass wir
+2 Aggregate haben, die sich untereinander referenzieren und sollen voneinander getrennt persistiert.
+
+Auch wenn die Anwendung sehr große Datenmengen verarbeitet, kann es notwendig sein, die Daten auf zwei Aggregate zu partitionieren, um die Datenverarbeitung zu beschleunigen und die Auslastung der Aggregate zu minimieren: Personen haben schnellen Zugriff auf ihren eigenen Gruppen (Ohne
+die komplette Gruppenliste komplett durchlaufen zu müssen).
+
+
+Darüber hinaus kann es dazu kommen, dass die Anwendung in Zukunft stark wachsen wird.
+Dann kann es sinnvoll sein, von Anfang an zwei Aggregate zu verwenden, um die Skalierbarkeit zu verbessern und das Hinzufügen weiterer Aggregate in Zukunft zu erleichtern.
+Zum Beispiel die Person Aggregate, weil sie in einzelne spezialisierte Einheiten unterteilt wird, kann einfach für neue Funktionen( zum Beispiel Marketing) wieder verwendet werden.
+
+
+Nachteile:
+Komplexität: Die Verwendung von zwei Aggregaten kann die Komplexität der Anwendung erhöhen, da die Interaktionen zwischen den Aggregaten verwaltet werden müssen. Dies kann zu höherem Entwicklungsaufwand, Testaufwand und niedrigen Wartbarkeit führen.
+Durch mehrere Entwicklungsaufwände könnte diese Situation beseitigt werden.
+Datenkonsistenz: Wenn die Daten, die von den beiden Aggregaten verwaltet werden, miteinander verknüpft sind, kann es schwierig sein, sicherzustellen, dass die Datenkonsistenz gewahrt bleibt. Es ist möglicherweise notwendig, komplexe Transaktionen oder Kompensationsmechanismen zu implementieren, um die Konsistenz der Daten zu gewährleisten.
+Das Beispiel wäre, wenn wir neue Personen zu einer Gruppe hinzufügen, musst direkt danach die Gleiche Gruppe zur Person hinzufügt. Die Daten zwischen die beiden Instruktionen sind nicht synchron.
+Das können wir ignorieren.
+
+.DomainService
+Hier wurde Hilfsklassen implementiert für die berechnung der Ausgaben sowie
+die notwendigen Ausgleich-transaktionen.
+
+* Balance: klasse, die die Differenz zwischen Ausgaben
+und Annahmen einer Person berechnet.
+
+* BalanceRechner: Klasse, die der Algorithmus für die notwendigen
+Ausgleichtransaktionenberechnungen enthält.
+
+
+
+
+

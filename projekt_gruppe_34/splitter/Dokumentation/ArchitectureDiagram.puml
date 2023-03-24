@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "System: Splitter" {
+
+  [application.service] <<..application.service..>>
+  [domain.model] <<..domain.model..>>
+  [domain.service] <<..domain.service..>>
+  [repositories] <<..repositories..>>
+  [security] <<..config..>>
+  [controllers] <<..controllers..>>
+  [api] <<..api..>>
+}
+
+
+[domain.service] --> [domain.model]
+[application.service] --> [domain.model]
+[controllers] --> [domain.model]
+[repositories] --> [domain.model]
+[api] --> [domain.model]
+
+[application.service] --> [domain.service]
+
+[controllers] --> [application.service]
+
+[api] --> [application.service]
+
+[repositories] --> [application.service]
+
+
+@enduml

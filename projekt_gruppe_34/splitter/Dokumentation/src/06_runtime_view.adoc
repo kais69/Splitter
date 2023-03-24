@@ -1,0 +1,32 @@
+[[section-runtime-view]]
+== Laufzeitsicht
+
+
+****
+
+[role="arc42help"]
+
+Starten des Programmes:
+
+* Ablauf:  Der Benutzer gibt die "http://localhost:9000/" URL ein und muss zuerst sein GitHub Account verknüpfen.
+Dadurch bekommt er die Startseite angezeigt,
+* Im Hintergrund: Man arbeite nun in den Controllern mit einem PersonObject, wodurch man ein Objekt "Person" erstellen kann
+welches identifiziert, welcher Benutzer zurzeit das Programm benutzt.
+
+Das Erstellen einer Gruppe:
+
+* Ablauf: Der Benutzer gibt zuerst der Name der Gruppe und drückt auf den "erstellen",
+die neue gestellte Gruppe wird auf dieselbe Seite angezeigt.
+
+Person zu Gruppe Hinzufügen:
+
+* auf der Detail-Seite die Person-Githubname eingeben und submitten.
+
+Ausgaben Gruppe Hinzufügen:
+
+* auf der Detail-Seite das Formular für die Ausgaben ausfüllen und submitten.
+Berechnungen der Transaktionen werden automatisch ausgeführt und angezeigt.
+
+Gruppe Schlißen:
+
+* auf der Detail-Seite auf dem schließen button drucken.

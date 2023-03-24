@@ -1,0 +1,12 @@
+[[section-technical-risks]]
+== Risiken und technische Schulden
+
+[role="arc42help"]
+****
+
+
+
+.Service Problem
+mögliche Daten Inkonsistenz zwischen beiden Aggregaten Gruppe und Person.
+****
+

@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  flyway:
+    user: splitter
+    password: splitter34
+    url: jdbc:postgresql://localhost:5432/splitter
+  datasource:
+    password: splitter34
+    username: splitter
+    url: jdbc:postgresql://localhost:5432/splitter
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+
+

@@ -1,0 +1,34 @@
+[[section-solution-strategy]]
+== Lösungsstrategie
+
+[role="arc42help"]
+
+=== Aufbau
+
+//* Implementierung einer Datenbank mit Benutzung von Docker (Postgres)
+//und Flyway
+
+* Datenstrukturen die als Aggregate modelliert sind, welche das Laden
+und Speichern, sowie das Validieren der Eingaben erleichtern.
+
+* Services, welche die Interaktionen des Nutzers simulieren und somit
+das Arbeiten mit den Aggregaten erleichtert.
+
+* Einer Webseitenimplementierung, welche dem Benutzer die Möglichkeit
+gibt seine Daten einzugeben.
+
+Außerdem haben wir mit Spring gearbeitet, was uns das Arbeiten mit Testings
+und Controllern vereinfacht hat.
+
+Mit Thymeleaf wurde die Zusammenarbeit zwischen Controllern und Html
+Dateien auch angenehmer.
+
+=== Qualitätsziele
+
+* eine Person immer nur selber Überweisungen an andere tätigt, oder Geld überwiesen bekommt, aber niemals beides. Es soll also zum Beispiel nicht vorkommen, dass B an A für das Hotelzimmer eine Überweisung tätigen muss, und A dann an B den Anteil am Benzinverbrauch überweist. Auch Zirkel überweisungen sollen ausgeschlossen werden.
+
+* es höchstens eine Überweisung zwischen zwei Personen gibt und niemand sich selber Geld überweist.
+
+* Versuchen die Anzahl der Transaktionen minimal zu halten.
+
+

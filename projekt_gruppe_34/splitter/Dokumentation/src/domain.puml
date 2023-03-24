@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Gruppe
+class Person
+class Transaktion
+
+Gruppe --o Transaktion
+
+@enduml

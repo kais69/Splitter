@@ -1,0 +1,8 @@
+
+=== 1. Einführung und Ziele
+[role="arc42help"]
+****
+Eine Webanwendung, bei der Freunde und Mitbewohner den Überblick über
+Rechnungen und andere geteilte Ausgaben behalten,
+damit jeder sein Geld zurückbekommt und alle Konten
+ausgeglichen werden können.

@@ -1,0 +1,15 @@
+[[section-deployment-view]]
+== Verteilungssicht
+
+[role="arc42help"]
+****
+.Inhalt
+
+* Docker notwendig für die Implementierung der Datenbanken
+* Postgres für Prod Version
+* Memory Datenbanken: H2 für die ausführung der Tests.
+
+****
+
+
+

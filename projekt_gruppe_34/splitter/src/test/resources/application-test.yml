@@ -1,0 +1,9 @@
+spring:
+  flyway:
+    user: splitter
+    password: splitter34
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+  datasource:
+    password: splitter34
+    username: splitter
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
